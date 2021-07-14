@@ -33,7 +33,7 @@ namespace marketing_functions
             string campaignId = req.Query["campaignId"];
             string userId = req.Query["userId"];
 
-            var cnnString = Environment.GetEnvironmentVariable("SqlConnection");
+            var cnnString = Environment.GetEnvironmentVariable("ConnectionString");
 
             using (var conn = new SqlConnection(cnnString))
             {
@@ -54,7 +54,7 @@ namespace marketing_functions
     
         private static string BuildHtmlResponse(Campaign campaign)
         {
-            var marketingStorageUri = Environment.GetEnvironmentVariable("MarketingStorageUri");
+            var marketingStorageUri = Environment.GetEnvironmentVariable("PicBaseUrl");
 
             return string.Format(@"
             <html>
